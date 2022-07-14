@@ -24,7 +24,7 @@
 <html>
 <head>
     <title>Login</title>
-    <%@ include file="partials/head.jsp" %>
+    <%@ include file="partials/login-form-head.jsp" %>
 </head>
 <body>
 <%@ include file="partials/navbar.jsp" %>
