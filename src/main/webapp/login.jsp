@@ -28,12 +28,14 @@
 </head>
 <body>
 <%@ include file="partials/navbar.jsp" %>
-<form action="login.jsp" method="post">
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" placeholder="Enter your username">
-    <label for="password">Password</label>
-    <input type="text" name="password" id="password" placeholder="Enter your password">
-    <button type="submit">Submit</button>
-</form>
+<%@ include file="partials/login-form.jsp" %>
+<%--<form action="login.jsp" method="post">--%>
+<%--    <label for="username">Username</label>--%>
+<%--    <input type="text" name="username" id="username" placeholder="Enter your username">--%>
+<%--    <label for="password">Password</label>--%>
+<%--    <input type="text" name="password" id="password" placeholder="Enter your password">--%>
+<%--    <button type="submit">Submit</button>--%>
+<%--</form>--%>
+<%@ include file="partials/bootstrap.jsp" %>
 </body>
 </html>
