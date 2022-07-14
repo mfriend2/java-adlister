@@ -23,7 +23,7 @@
     }%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Login</title>
     <%@ include file="partials/head.jsp" %>
 </head>
 <body>
