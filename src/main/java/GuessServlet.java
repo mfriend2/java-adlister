@@ -15,11 +15,14 @@ public class GuessServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String guess = req.getParameter("guess");
+        String randNum = String.valueOf((int) Math.floor((Math.random() * 3)) + 1);
         req.setAttribute("guess", guess);
-        if (guess != null && guess.equals("2")) {
+        if (guess != null && guess.equals(randNum)) {
+            System.out.println(randNum);
             resp.sendRedirect("/correct");
         }
         else {
+            System.out.println(randNum);
             resp.sendRedirect("/incorrect");
         }
     }
