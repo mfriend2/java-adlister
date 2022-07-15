@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static java.lang.Integer.parseInt;
+
 @WebServlet(name = "GuessServlet", urlPatterns = "/guess")
 public class GuessServlet extends HttpServlet {
     @Override
@@ -17,7 +19,10 @@ public class GuessServlet extends HttpServlet {
         String guess = req.getParameter("guess");
         String randNum = String.valueOf((int) Math.floor((Math.random() * 3)) + 1);
         req.setAttribute("guess", guess);
-        if (guess != null && guess.equals(randNum)) {
+        if (guess != null && parseInt(guess) > 3 || parseInt(guess) < 1) {
+            resp.sendRedirect("/guess");
+        }
+         else if (guess != null && guess.equals(randNum)) {
             System.out.println(randNum);
             resp.sendRedirect("/correct");
         }
