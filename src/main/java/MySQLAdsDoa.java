@@ -12,8 +12,8 @@ public class MySQLAdsDoa implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                     config.getUrl(),
-                    config.getPassword(),
-                    config.getUser()
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error Connecting", e);
@@ -44,7 +44,7 @@ public class MySQLAdsDoa implements Ads {
     public Long insert(Ad ad) {
         try {
             Statement statement = connection.createStatement();
-            String query = String.format("INSERT INTO ads (user_id, title, description) VALUES (%d, %s, %s)", ad.getUserId(), ad.getTitle(), ad.getDescription());
+            String query = String.format("INSERT INTO ads (user_id, title, description) VALUES (%d, '%s', '%s')", ad.getUserId(), ad.getTitle(), ad.getDescription());
             int statementReturn = statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -54,5 +54,9 @@ public class MySQLAdsDoa implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error running program", e);
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }
